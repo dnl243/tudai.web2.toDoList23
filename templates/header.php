@@ -32,6 +32,9 @@
               <a class="nav-link" aria-current="page" href="home">Tasks</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="form">Add</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" aria-current="page" href="about">About us</a>
             </li>
           </ul>

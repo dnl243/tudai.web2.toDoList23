@@ -15,6 +15,12 @@ switch ($params[0]) {
   case 'home':
     showTasks();
     break;
+  case 'form':
+    showForm();
+    break;
+  case 'add':
+    addTask();
+    break;
   case 'about':
     isset($params[1]) ?
       showAbout($params[1]) :
