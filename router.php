@@ -1,6 +1,9 @@
 <?php
-require_once 'tasks.php';
-require_once 'about.php';
+require_once 'app/functions.php';
+
+// home -> showTasks();
+// about -> showAbout();
+// about/:id -> showAbout($id);
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
