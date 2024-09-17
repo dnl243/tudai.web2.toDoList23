@@ -1,4 +1,7 @@
 <?php
+// PDO es una interface de acceso a bases de datos
+// En este caso ingresa a mysql desde php
+
 // 1- Abrimos una conexión
 // 2- Enviamos la consulta y nos devuelve el resultado
 // 3- Procesamos los datos
@@ -17,13 +20,13 @@ function getTasks()
   // 2- Enviamos la consulta y obtenemos el resultado
   $query = $db->prepare('SELECT * FROM tareas');
   $query->execute();
-  $tareas = $query->fetchAll(PDO::FETCH_OBJ);
+  $tasks = $query->fetchAll(PDO::FETCH_OBJ);
 
   // 3- Procesamos los datos
-  return $tareas;
+  return $tasks;
 }
 
-function insertAsk($title, $description, $priority)
+function insertTask($title, $description, $priority)
 {
   // 1- Abrimos una conexión
   $db = getConection();
@@ -33,4 +36,24 @@ function insertAsk($title, $description, $priority)
   $query->execute([$title, $description, $priority]);
 
   return $db->lastInsertId();
+}
+
+function deleteTask($id_tarea)
+{
+  // 1- Abrimos una conexión
+  $db = getConection();
+
+  // 2- Enviamos la consulta y obtenemos el resultado
+  $query = $db->prepare('DELETE FROM tareas WHERE id_tarea=?');
+  $query->execute([$id_tarea]);
+}
+
+function updateTask($id_tarea)
+{
+  // 1- Abrimos una conexión
+  $db = getConection();
+
+  // 2- Enviamos la consulta y obtenemos el resultado
+  $query = $db->prepare('UPDATE tareas SET finalizada = 1 WHERE id_tarea=?');
+  $query->execute([$id_tarea]);
 }

@@ -20,7 +20,13 @@ function getDevelopers()
   $d3->email = "belen.enemark@diariotudai.com";
   $d3->role = "Frontend Developer";
 
-  $developers = [$d1, $d2, $d3];
+  $d4 = new stdClass();
+  $d4->id = "daniel";
+  $d4->name = "Daniel Fuentes";
+  $d4->email = "dnl243@hotmail.com.ar";
+  $d4->role = "Full Stack Developer";
+
+  $developers = [$d1, $d2, $d3, $d4];
   return $developers;
 }
 

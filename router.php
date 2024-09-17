@@ -2,6 +2,10 @@
 require_once 'app/functions.php';
 
 // home -> showTasks();
+// form -> showForm();
+// add -> addTask();
+// delete/:id -> deleteTask($id);
+// finish/:id -> finishTask($id);
 // about -> showAbout();
 // about/:id -> showAbout($id);
 
@@ -20,6 +24,12 @@ switch ($params[0]) {
     break;
   case 'add':
     addTask();
+    break;
+  case 'delete':
+    removeTask($params[1]);
+    break;
+  case 'finish':
+    finishTask($params[1]);
     break;
   case 'about':
     isset($params[1]) ?

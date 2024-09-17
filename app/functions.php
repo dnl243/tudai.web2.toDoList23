@@ -14,17 +14,19 @@ function showTasks()
           <th scope="col">título</th>
           <th scope="col">descripción</th>
           <th scope="col">prioridad</th>
-          <th scope="col">finalizada</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($task as $task) : ?>
-          <tr>
-            <th scope="row"><?= $task->id_tarea; ?></th>
-            <td><?= $task->titulo; ?></td>
+          <tr <?php if ($task->finalizada) echo 'class="opacity-50 text-decoration-line-through"'; ?>>
+            <td scope="row"><?= $task->id_tarea; ?></td>
+            <th><?= $task->titulo; ?></th>
             <td><?= $task->descripcion; ?></td>
             <td><?= $task->prioridad; ?></td>
-            <td><?= $task->finalizada; ?></td>
+            <td><a href="finish/<?= $task->id_tarea; ?>" type="button" class="btn btn-success ml-auto"><?php echo $task->finalizada ? "Finalizada" : "Finalizar..."; ?></a></td>
+            <td><a href="delete/<?= $task->id_tarea; ?>" type="button" class="btn btn-danger ml-auto">Borrar</a></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
@@ -78,20 +80,29 @@ function addTask()
     $title = $_POST['title'];
     $description = $_POST['description'];
     $priority = $_POST['priority'];
-    $id = insertAsk($title, $description, $priority);
+    $id = insertTask($title, $description, $priority);
     // si $id vuelve 0 hubo un error
     // si $id vuelve !0 se inserto correctamente
     if ($id) {
-      // en un HTML con el tag base podriamos usar
-      // header('location: /home');
-      // como es solo una funcion voy a llamar a showTasks
-      showTasks();
+      header('location: ' . BASE_URL);
     } else {
       echo "ERROR AL INSERTAR LA TAREA";
     }
   } else {
     echo "ERROR EN LA CARGA DE LA TAREA";
   }
+}
+
+function removeTask($id)
+{
+  deleteTask($id);
+  header('location: ' . BASE_URL);
+}
+
+function finishTask($id)
+{
+  updateTask($id);
+  header('location: ' . BASE_URL);
 }
 
 function showAbout($id = null)
