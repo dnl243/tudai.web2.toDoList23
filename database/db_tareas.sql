@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_tareas`
+-- Base de datos: `db_toDoList23`
 --
 
 -- --------------------------------------------------------
@@ -40,13 +40,13 @@ CREATE TABLE `tareas` (
 --
 
 INSERT INTO `tareas` (`id_tarea`, `titulo`, `descripcion`, `prioridad`, `finalizada`) VALUES
-(43, 'Redactar informe mensual', 'Elaborar un informe detallado sobre los resultados del mes anterior', 4, 1),
-(46, 'Asistir a reunión', 'Participar en la reunión de coordinación del proyecto', 1, 1),
-(48, 'Realizar seguimiento de pedidos', 'Verificar el estado de los pedidos pendientes', 2, 1),
-(49, 'Corregir errores en el código', 'Identificar y solucionar los errores en el código fuente', 4, 0),
-(50, 'Diseñar nuevo logo', 'Crear un nuevo diseño para el logo de la empresa', 3, 0),
-(51, 'Investigar nueva tecnología', 'Estudiar las últimas tendencias en tecnología de la información', 1, 1),
-(52, 'Organizar evento', 'Planificar y ejecutar un evento corporativo', 5, 0);
+(1, 'Redactar informe mensual', 'Elaborar un informe detallado sobre los resultados del mes anterior', 4, 1),
+(2, 'Asistir a reunión', 'Participar en la reunión de coordinación del proyecto', 1, 1),
+(3, 'Realizar seguimiento de pedidos', 'Verificar el estado de los pedidos pendientes', 2, 1),
+(4, 'Corregir errores en el código', 'Identificar y solucionar los errores en el código fuente', 4, 0),
+(5, 'Diseñar nuevo logo', 'Crear un nuevo diseño para el logo de la empresa', 3, 0),
+(6, 'Investigar nueva tecnología', 'Estudiar las últimas tendencias en tecnología de la información', 1, 1),
+(7, 'Organizar evento', 'Planificar y ejecutar un evento corporativo', 5, 0);
 
 --
 -- Índices para tablas volcadas
