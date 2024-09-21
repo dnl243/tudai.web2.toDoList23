@@ -7,15 +7,15 @@
 // 3- Procesamos los datos
 // 4- Cerramos la conexión; en PDO no es necesario cerrar la conexión
 
-function getConection()
+function getConnection()
 {
-  return new PDO('mysql:host=localhost;dbname=db_tareas;charset=utf8', 'root', '');
+  return new PDO('mysql:host=localhost;dbname=db_toDoList23;charset=utf8', 'root', '');
 }
 
 function getTasks()
 {
   // 1- Abrimos una conexión
-  $db = getConection();
+  $db = getConnection();
 
   // 2- Enviamos la consulta y obtenemos el resultado
   $query = $db->prepare('SELECT * FROM tareas');
@@ -29,7 +29,7 @@ function getTasks()
 function insertTask($title, $description, $priority)
 {
   // 1- Abrimos una conexión
-  $db = getConection();
+  $db = getConnection();
 
   // 2- Enviamos la consulta y obtenemos el resultado
   $query = $db->prepare('INSERT INTO tareas(titulo, descripcion, prioridad) VALUES (?,?,?)');
@@ -41,7 +41,7 @@ function insertTask($title, $description, $priority)
 function deleteTask($id_tarea)
 {
   // 1- Abrimos una conexión
-  $db = getConection();
+  $db = getConnection();
 
   // 2- Enviamos la consulta y obtenemos el resultado
   $query = $db->prepare('DELETE FROM tareas WHERE id_tarea=?');
@@ -51,7 +51,7 @@ function deleteTask($id_tarea)
 function updateTask($id_tarea)
 {
   // 1- Abrimos una conexión
-  $db = getConection();
+  $db = getConnection();
 
   // 2- Enviamos la consulta y obtenemos el resultado
   $query = $db->prepare('UPDATE tareas SET finalizada = 1 WHERE id_tarea=?');
